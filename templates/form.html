@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+    </head>
+    <body>
+        Form: 
+        <form action="/test" method="GET">
+            name
+            <br>
+            <input name="name" type="text" placeholder="{{ placeholder }}" value="{{ name }}" />
+            <br />
+            description
+            <br>
+            <textarea name="desc" value="{{ description }}"></textarea>
+            <br />
+            gender
+            <br>
+            {% for number in number_list %}
+                <p>{{ number }}</p>
+            {% endfor %}
+            <select name="gender" id="">
+                <option><option>
+                <option value="woman" {% if gender == 'woman' %} selected {% endif %}>I'm a woman</option>
+                <option value="man" {% if gender == 'man' %} selected {% endif %}>I'm a man</option>
+            </select>
+            <br>
+            <input type="submit" value="submit form">
+        </form>
+    </body>
+</html>
