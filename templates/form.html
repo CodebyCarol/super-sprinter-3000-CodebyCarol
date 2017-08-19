@@ -1,34 +1,87 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Super Sprinter 3000 - Edit Story</title>
-    </head>
-    <body>
-        Form: 
-        <form action="/story" method="GET">
-            name
-            <br>
-            <input name="name" type="text" placeholder="{{ placeholder }}" value="{{ name }}" />
-            <br />
-            description
-            <br>
-            <textarea name="desc" value="{{ description }}"></textarea>
-            <br />
-            gender
-            <br>
-            {% for number in number_list %}
-                <p>{{ number }}</p>
-            {% endfor %}
-            <select name="gender" id="">
-                <option><option>
-                <option value="woman" {% if gender == 'woman' %} selected {% endif %}>I'm a woman</option>
-                <option value="man" {% if gender == 'man' %} selected {% endif %}>I'm a man</option>
-            </select>
-            <br>
-            <input type="submit" value="submit form">
-        </form>
-    </body>
+<html>
+<style>
+input[type=text], select {
+    width: 60%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=number], select {
+    width: 15%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 60%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+div {
+    border-radius: 5px;
+    /*background-color: #f2f2f2;*/
+    padding: 20px;
+}
+ button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            radius: 10px;
+            height: 30px;
+        }
+</style>
+<body>
+
+<h3>User Story Manager - Add new Story</h3>
+{% if user_id %}
+    {% pass %}
+{% else %}
+    
+<div>
+  <form action="/story">
+    <label for="stitle">Story Title</label>
+    </br>
+    <input type="text" id="stitle" name="title" placeholder="The title of your project...">
+    </br>
+    <label for="descr">User Story</label>
+    </br>
+    <input type="text" id="descr" name="descr" placeholder="Description of the project...">
+    </br>
+    <label for="acceptance">Acceptance Criteria</label>
+    </br>
+    <input type="text" id="acceptance" name="accr" placeholder="Must have...">
+    </br>
+    <label for="value">Business Value</label>
+    </br>
+    <input type="number" name="value" placeholder="from 100 to 1500" min="100" max="1500" step="100">
+    </br>
+    <label for="value">Estimation (h)</label>
+    </br>
+    <input type="number" name="value" placeholder="from 0.5 to 40" min="0.5" max="40" step="0.5">
+  </form>
+</br>
+<a href='/list'>
+<button type='button'>Create new User Story</button>
+</a>
+</div>
+{% end if %}
+</body>
 </html>
