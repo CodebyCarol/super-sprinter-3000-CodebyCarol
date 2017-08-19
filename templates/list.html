@@ -6,18 +6,18 @@
         <style>
         table {
             width:98%;
-            border: 1px solid grey;
+            border: 1px solid #d3d3d3;
             border-collapse: collapse; 
                
         }
         tr, td, th {
-            border: 1px solid grey;
+            border: 1px solid #d3d3d3;
             height: 30px;
             text-align: left;
             padding: 5px;
         }
         th {
-            background-color: #4CAF50;
+            background-color: grey;
             color: white;
             
         }
@@ -29,6 +29,7 @@
             height: 30px;
         }
         </style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     </head>
     <body>
         <h1>User Story Manager</h1>
@@ -39,18 +40,29 @@
         <br>
         <br>
         <table width='100%'>
-            <tr>
-                <th>ID</th>
-                <th style=width:'20%'>Story Title</th>
-                <th>User Story</th>
-                <th>Acceptance Criteria</th>
-                <th>Business Value</th>
-                <th>Estimation</th>
-                <th>Status</th>
-            </tr>
-            <tr>
-                <td>56</td>
-            </tr>        
+            <thead>
+                <tr>
+                    <th style=width:3%>ID</th>
+                    <th style=width:10%>Story Title</th>
+                    <th style=width:25%>User Story</th>
+                    <th style=width:20%>Acceptance Criteria</th>
+                    <th style=width:13%>Business Value</th>
+                    <th style=width:10%>Estimation</th>
+                    <th style=width:10%>Status</th>
+                    <!--{% szebb lenne ugyanez header templattel amit behivok...%}-->
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr>
+                    {% for cell in row %}
+                    <td>{{cell}}</td>
+                    {% endfor %}
+                    <i class="material-icons">edit</i>
+                    <i class="material-icons">cancel</i>    
+                </tr>
+                {% endfor %}
+            </tbody>            
         </table>    
     </body>
 
