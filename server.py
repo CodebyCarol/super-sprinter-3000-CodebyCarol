@@ -25,7 +25,7 @@ def route_story():
     with open('stories.csv', 'a') as csvfile:
         exportdata = csv.writer(csvfile, delimiter=';',
                                 quotechar='|', quoting=csv.QUOTE_MINIMAL)
-        exportdata.writerow([uuid.uuid4(), request.form['title'], request.form['descr'], request.form['accr'], request. form['businessvalue'], request. form['estimation'], request. form['status']])
+        exportdata.writerow([str(uuid.uuid4())[:6], request.form['title'], request.form['descr'], request.form['accr'], request. form['businessvalue'], request. form['estimation'], request. form['status']])
     
     return 'The new User Story Has been Created!'
 
