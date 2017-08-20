@@ -7,17 +7,16 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 @app.route('/list', methods=['GET'])
-#the pen at the end of the row redirect to editor, the bin icon removes the actual row from the table
 def route_list(*argv):
     with open('stories.csv', 'r') as csvfile:
-        rows=[]
+        stories=[]
         for row in csvfile:
-            rows.append(row.split(';'))
-    return render_template('list.html', rows=rows)
+            stories.append(row.split(';'))
+    return render_template('list.html', stories=stories)
 
 
 @app.route('/story', methods=['GET', 'POST'])
-#using form.html
+#using form.html template
 #add new story for the /story page, it is an empty form with a create button
 def route_story():
     if request.method == 'GET':
@@ -28,8 +27,7 @@ def route_story():
                                 quotechar='|', quoting=csv.QUOTE_MINIMAL)
         exportdata.writerow([uuid.uuid4(), request.form['title'], request.form['descr'], request.form['accr'], request. form['businessvalue'], request. form['estimation'], request. form['status']])
     
-    return 'Sikeresen feltoltotted a formot!'
-
+    return 'The new User Story Has been Created!'
 
 
 # @app.route('/story/<story_id>', methods=['GET', 'POST'])
