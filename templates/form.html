@@ -53,38 +53,40 @@
     <body>
 
     <h1>User Story Manager - Add new Story</h1>
-    {% if user_id %}
-        {% pass %}
-    {% else %}
-        
+        <!--itt meg kéne vizsgálni hogy van-e story-id, ha nincs akkor fut ez le, ha van, akkor ki kéne töltenie adatokkal --!-->
     <div>
-    <form action="/story">
+    <form action="/story" method="POST">
         <label for="stitle">Story Title</label>
         </br>
-        <input type="text" id="stitle" name="title" placeholder="The title of your project...">
+        <input type="text" id="stitle" name="title" placeholder="The title of your project..." required>
         </br>
         <label for="descr">User Story</label>
         </br>
-        <input type="text" id="descr" name="descr" placeholder="Description of the project...">
+        <input type="text" id="descr" name="descr" placeholder="Description of the project..." required>
         </br>
         <label for="acceptance">Acceptance Criteria</label>
         </br>
-        <input type="text" id="acceptance" name="accr" placeholder="Must have...">
+        <input type="text" id="acceptance" name="accr" placeholder="Must have..." required>
         </br>
         <label for="value">Business Value</label>
         </br>
-        <input type="number" name="value" placeholder="from 100 to 1500" min="100" max="1500" step="100">
+        <input type="number" name="businessvalue" placeholder="from 100 to 1500" min="100" max="1500" step="100" required>
         </br>
         <label for="value">Estimation (h)</label>
         </br>
-        <input type="number" name="value" placeholder="from 0.5 to 40" min="0.5" max="40" step="0.5">
+        <input type="number" name="estimation" placeholder="from 0.5 to 40" min="0.5" max="40" step="0.5" required>
+        <label for="value">Status</label>
+        </br>
+        <input type="number" name="status" placeholder="from 0.5 to 40" min="0.5" max="40" step="0.5" required>
+        </br>
+        <input type="submit" value="Create new User Story">
     </form>
     </br>
     <a href='/list'>
-    <button type='button'>Create new User Story</button>
+    <!-- <button type='button'>Create new User Story</button> -->
     </a>
     <!--itt lehetne még valami, ha mégsem szeretné elmenteni.... -->
     </div>
-    {% end if %}
+    
     </body>
 </html>
