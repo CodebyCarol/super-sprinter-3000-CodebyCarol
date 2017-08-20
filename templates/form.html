@@ -75,9 +75,16 @@
         <label for="value">Estimation (h)</label>
         </br>
         <input type="number" name="estimation" placeholder="from 0.5 to 40" min="0.5" max="40" step="0.5" required>
+        </br>
         <label for="value">Status</label>
         </br>
-        <input type="number" name="status" placeholder="from 0.5 to 40" min="0.5" max="40" step="0.5" required>
+        <select name="status">
+            <option value="planning">Planning</option>
+            <option value="todo">TODO</option>
+            <option value="inprogress">In Progress</option>
+            <option value="review">Review</option>
+            <option value="done">Done</option>
+        </select>    
         </br>
         <input type="submit" value="Create new User Story">
     </form>
